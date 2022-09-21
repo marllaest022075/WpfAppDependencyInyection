@@ -25,7 +25,13 @@ namespace WpfAppDependencyInyection.UI
 
         private void ConfigureServices(ServiceCollection service)
         {
-            
+            service.AddSingleton<MainWindow>();
+        }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            var MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            MainWindow.Show();
         }
     }
 }
