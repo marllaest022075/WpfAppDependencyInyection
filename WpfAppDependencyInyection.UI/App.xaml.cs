@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfAppDependencyInyection.UI.ViewModels;
+using WpfAppDependencyInyection.UI.Views;
 
 namespace WpfAppDependencyInyection.UI
 {
@@ -25,12 +27,13 @@ namespace WpfAppDependencyInyection.UI
 
         private void ConfigureServices(ServiceCollection service)
         {
-            service.AddSingleton<MainWindow>();
+            service.AddTransient<MainViewModel, MainViewModel>();
+            service.AddSingleton<MainView>();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            var MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            var MainWindow = _serviceProvider.GetRequiredService<MainView>();
             MainWindow.Show();
         }
     }
