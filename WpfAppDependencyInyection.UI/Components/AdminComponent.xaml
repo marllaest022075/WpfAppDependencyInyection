@@ -9,6 +9,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900">
     <Grid>
-        <TextBlock Text="{Binding Path=Mensage}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
+        <Grid Visibility="{Binding Path=IsAdmin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"  Content="Usuarios"/>
+            <Button Grid.Column="1" Grid.Row="0" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="Productos"/>
+            <Button Grid.Column="2" Grid.Row="0" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="Proveedores"/>
+            <Button Grid.Column="0" Grid.Row="1" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="Inventario"/>
+            <Button Grid.Column="1" Grid.Row="1" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="Produccion"/>
+            <Button Grid.Column="2" Grid.Row="1" Margin="10" Command="{Binding Path=SelectionCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="Mantenimiento"/>
+        </Grid>
     </Grid>
 </UserControl>
