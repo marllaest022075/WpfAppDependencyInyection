@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfAppDependencyInyection.UI.Helpers;
+using WpfAppDependencyInyection.UI.Models;
 
 namespace WpfAppDependencyInyection.UI.ViewModels
 {
@@ -13,6 +14,7 @@ namespace WpfAppDependencyInyection.UI.ViewModels
 
         private string title;
         private LoginViewModel _loginContext;
+        private User _user;
 
 
         public string Title { get => title; set => SetProperty(ref title, value); }
@@ -20,11 +22,18 @@ namespace WpfAppDependencyInyection.UI.ViewModels
 
         public MainViewModel(LoginViewModel  loginViewModel)
         {
-            title = "Desde ViewModel";
-            _loginContext = loginViewModel;
             VistasHelper.LoadNewSize += VistasHelper_LoadNewSize;
+            UserHelper.LoadNewUser += UserHelper_LoadNewUser;
+            title = "Desde ViewModel";
+            _user = new();
+            _loginContext = loginViewModel;
             _loginContext.ShowLogin = Visibility.Visible;
             
+        }
+
+        private void UserHelper_LoadNewUser(User user)
+        {
+            _user = user;
         }
 
         private void VistasHelper_LoadNewSize(int width, int height)
@@ -32,5 +41,6 @@ namespace WpfAppDependencyInyection.UI.ViewModels
             Width = width;
             Heigth = height;
         }
+        
     }
 }
