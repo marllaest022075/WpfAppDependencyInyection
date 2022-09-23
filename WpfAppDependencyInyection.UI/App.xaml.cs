@@ -31,6 +31,7 @@ namespace WpfAppDependencyInyection.UI
         {
             service.AddTransient<MainViewModel, MainViewModel>();
             service.AddTransient<LoginViewModel, LoginViewModel>();
+            service.AddTransient<AdminViewModel, AdminViewModel>();
 
             service.AddTransient<ILogin, Login>();
 

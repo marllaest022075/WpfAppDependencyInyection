@@ -13,6 +13,7 @@
         MinHeight="{Binding Path=Heigth}"
         >
     <Grid>
-        <components:LoginControl DataContext="{Binding Path=LoginContext}" Visibility="{Binding Path=ShowLogin}" />
+        <components:LoginControl DataContext="{Binding Path=LoginContext}" Visibility="{Binding Path=ShowIt}" />
+        <components:AdminComponent DataContext="{Binding Path=AdminContext}" Visibility="{Binding Path=ShowIt}"/>
     </Grid>
 </Window>

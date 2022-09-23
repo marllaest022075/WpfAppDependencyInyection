@@ -7,13 +7,12 @@ using WpfAppDependencyInyection.UI.Models;
 
 namespace WpfAppDependencyInyection.UI.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseComponentVM
     {
         private string _userName;
         private string _password;
         private Visibility _hasUser;
         private Visibility _hasPass;
-        private Visibility showLogin;
 
         private User _user;
 
@@ -28,8 +27,7 @@ namespace WpfAppDependencyInyection.UI.ViewModels
 
         public Visibility HasUser { get => _hasUser; set => SetProperty(ref _hasUser, value); }
         public Visibility HasPass { get => _hasPass; set => SetProperty(ref _hasPass, value); }
-        public Visibility ShowLogin
-        { get => showLogin; set { SetProperty(ref showLogin, value); VistasHelper.ChangeViewSize(Width, Heigth); } }
+        
 
         public ICommand LoginCommand => loginCommand;
         public LoginViewModel(ILogin login)
