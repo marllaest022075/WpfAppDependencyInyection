@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using WpfAppDependencyInyection.UI.Helpers;
 
 namespace WpfAppDependencyInyection.UI.ViewModels
 {
@@ -30,7 +31,7 @@ namespace WpfAppDependencyInyection.UI.ViewModels
 
         private Visibility showLogin;
 
-        public Visibility ShowLogin { get => showLogin; set => SetProperty(ref showLogin, value); }
+        public Visibility ShowLogin { get => showLogin; set { SetProperty(ref showLogin, value); VistasHelper.ChangeViewSize(Width, Heigth); } }
 
 
     }

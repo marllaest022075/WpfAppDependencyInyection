@@ -8,7 +8,10 @@
         xmlns:components="clr-namespace:WpfAppDependencyInyection.UI.Components"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" Height="450" Width="800">
+        Title="{Binding Path=Title}" Height="450" Width="800"
+        MinWidth="{Binding Path=Width}"
+        MinHeight="{Binding Path=Heigth}"
+        >
     <Grid>
         <components:LoginControl DataContext="{Binding Path=LoginContext}" Visibility="{Binding Path=ShowLogin}" />
     </Grid>

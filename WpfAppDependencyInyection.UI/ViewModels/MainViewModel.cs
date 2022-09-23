@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfAppDependencyInyection.UI.Helpers;
 
 namespace WpfAppDependencyInyection.UI.ViewModels
 {
@@ -21,9 +22,15 @@ namespace WpfAppDependencyInyection.UI.ViewModels
         {
             title = "Desde ViewModel";
             _loginContext = loginViewModel;
+            VistasHelper.LoadNewSize += VistasHelper_LoadNewSize;
             _loginContext.ShowLogin = Visibility.Visible;
             
         }
 
+        private void VistasHelper_LoadNewSize(int width, int height)
+        {
+            Width = width;
+            Heigth = height;
+        }
     }
 }
