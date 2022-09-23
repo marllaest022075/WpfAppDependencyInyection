@@ -15,5 +15,21 @@ namespace WpfAppDependencyInyection.UI.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             return true;
         }
+        private int _width;
+
+        public int Width
+        {
+            get { return _width; }
+            set { SetProperty(ref _width , value); }
+        }
+        private int _heigth;
+
+        public int Heigth
+        {
+            get { return _heigth; }
+            set { _heigth = value; }
+        }
+
+
     }
 }

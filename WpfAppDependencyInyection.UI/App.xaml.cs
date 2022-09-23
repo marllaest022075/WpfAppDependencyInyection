@@ -28,6 +28,7 @@ namespace WpfAppDependencyInyection.UI
         private void ConfigureServices(ServiceCollection service)
         {
             service.AddTransient<MainViewModel, MainViewModel>();
+            service.AddTransient<LoginViewModel, LoginViewModel>();
             service.AddSingleton<MainView>();
         }
         protected override void OnStartup(StartupEventArgs e)
