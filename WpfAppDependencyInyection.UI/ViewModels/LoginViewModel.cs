@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using WpfAppDependencyInyection.UI.Helpers;
+using WpfAppDependencyInyection.UI.Interfaces;
 
 namespace WpfAppDependencyInyection.UI.ViewModels
 {
@@ -10,6 +11,9 @@ namespace WpfAppDependencyInyection.UI.ViewModels
         private string _password;
         private Visibility _hasUser;
         private Visibility _hasPass;
+        private Visibility showLogin;
+        
+        private readonly ILogin _login;
 
         public string UserName
         { get => _userName; set { SetProperty(ref _userName, value); HasUser = String.IsNullOrEmpty(_userName) ? Visibility.Visible : Visibility.Hidden; } }
@@ -17,9 +21,10 @@ namespace WpfAppDependencyInyection.UI.ViewModels
         { get => _password; set { SetProperty(ref _password, value); HasPass = String.IsNullOrEmpty(_password) ? Visibility.Visible : Visibility.Hidden; } }
         public Visibility HasUser { get => _hasUser; set => SetProperty(ref _hasUser, value); }
         public Visibility HasPass { get => _hasPass; set => SetProperty(ref _hasPass, value); }
+        public Visibility ShowLogin { get => showLogin; set { SetProperty(ref showLogin, value); VistasHelper.ChangeViewSize(Width, Heigth); } }
         
 
-        public LoginViewModel()
+        public LoginViewModel(ILogin login)
         {
             _userName = "";
             _password = "";
@@ -27,11 +32,10 @@ namespace WpfAppDependencyInyection.UI.ViewModels
             _hasPass = Visibility.Visible;
             Width = 250;
             Heigth = 450;
+            _login = login;
         }
 
-        private Visibility showLogin;
 
-        public Visibility ShowLogin { get => showLogin; set { SetProperty(ref showLogin, value); VistasHelper.ChangeViewSize(Width, Heigth); } }
 
 
     }

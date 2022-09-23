@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfAppDependencyInyection.UI.Interfaces;
+using WpfAppDependencyInyection.UI.Structure;
 using WpfAppDependencyInyection.UI.ViewModels;
 using WpfAppDependencyInyection.UI.Views;
 
@@ -29,6 +31,9 @@ namespace WpfAppDependencyInyection.UI
         {
             service.AddTransient<MainViewModel, MainViewModel>();
             service.AddTransient<LoginViewModel, LoginViewModel>();
+
+            service.AddTransient<ILogin, Login>();
+
             service.AddSingleton<MainView>();
         }
         protected override void OnStartup(StartupEventArgs e)
